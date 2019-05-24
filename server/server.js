@@ -32,6 +32,7 @@ function htmlTemplate( reactDom ) {
         <head>
             <meta charset="utf-8">
             <title>React SSR</title>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
             <base href="/" />
         </head>
         

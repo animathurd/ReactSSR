@@ -1,18 +1,24 @@
 import React from 'react';
-var quotes = [
-    ["Stay Hungry. Stay Foolish.", "Steve Jobs"],
-    ["Good Artists Copy, Great Artists Steal.", "Pablo Picasso"],
-    ["Argue with idiots, and you become an idiot.", "Paul Graham"],
-    ["Be yourself; everyone else is already taken.", "Oscar Wilde"],
-    ["Simplicity is the ultimate sophistication.", "Leonardo Da Vinci"]
-  ]
+import quotes from './quotes';
+
 const App = () => (
-    <div>
-        <h1>SSR is Awesome!</h1>
-        {quotes.map(quote => (<p key={quote[1]
-        }>
-            {quote[0]} - <i>{quote[1]}</i>
-        </p>))}
+    <div className="container">
+        <h1>Quotes by some great people...</h1>
+        {
+            quotes.map(quote => (
+                <div className="row">
+                    <div className="col-md-12">
+                        <div className="jumbotron">
+                        <h3 key={quote.source}>
+                            {quote.quote}
+                        </h3>
+                        <p><i>{quote.source}</i></p>
+                        </div>
+                    </div>
+                </div>
+                )
+            )
+        }
     </div>
 );
 
