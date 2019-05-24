@@ -7,26 +7,26 @@ import App from "../src/client/js/App";
 
 const app = express();
 
-app.use( express.static( path.resolve( __dirname, "./dist" ) ) );
+app.use(express.static(path.resolve(__dirname, "./dist")));
 
-app.get( "/resources/:filepath", ( req, res ) => {
-    res.sendFile(path.resolve(__dirname, `../dist/${req.params.filepath}`));
+app.get("/resources/:filepath", (req, res) => {
+  res.sendFile(path.resolve(__dirname, `../dist/${req.params.filepath}`));
 });
 
-app.get( "/*", ( req, res ) => {
-    const jsx = ( <App /> );
-    const reactDom = renderToString( jsx );
+app.get("/*", (req, res) => {
+  const jsx = <App />;
+  const reactDom = renderToString(jsx);
 
-    res.writeHead( 200, { "Content-Type": "text/html" } );
-    res.end( htmlTemplate( reactDom ) );
-} );
+  res.writeHead(200, { "Content-Type": "text/html" });
+  res.end(htmlTemplate(reactDom));
+});
 
-app.listen( 2048, () => {
-    console.log('Server running on port 2048...')
-} );
+app.listen(2048, () => {
+  console.log("Server running on port 2048...");
+});
 
-function htmlTemplate( reactDom ) {
-    return `
+function htmlTemplate(reactDom) {
+  return `
         <!DOCTYPE html>
         <html>
         <head>
@@ -37,7 +37,7 @@ function htmlTemplate( reactDom ) {
         </head>
         
         <body>
-            <div id="app">${ reactDom }</div>
+            <div id="app">${reactDom}</div>
             <script src="/resources/bundle.js"></script>
         </body>
         </html>

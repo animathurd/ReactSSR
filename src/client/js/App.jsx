@@ -1,25 +1,19 @@
-import React from 'react';
-import quotes from './quotes';
+import React from "react";
+import { Switch, Route } from "react-router-dom";
+import routes from "./routes";
+import Header from "./components/header.component";
 
 const App = () => (
-    <div className="container">
-        <h1>Quotes by some great people...</h1>
-        {
-            quotes.map(quote => (
-                <div className="row">
-                    <div className="col-md-12">
-                        <div className="jumbotron">
-                        <h3 key={quote.source}>
-                            {quote.quote}
-                        </h3>
-                        <p><i>{quote.source}</i></p>
-                        </div>
-                    </div>
-                </div>
-                )
-            )
-        }
-    </div>
+  <div>
+    <Router>
+      <Header />
+      <Switch>
+        {routes.map(route => (
+          <Route key={route.path} {...route} />
+        ))}
+      </Switch>
+    </Router>
+  </div>
 );
 
 export default App;
