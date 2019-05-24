@@ -1,10 +1,6 @@
 import express from "express";
 import path from "path";
 
-import React from "react";
-import { renderToString } from "react-dom/server";
-import App from "../src/client/js/App";
-
 const app = express();
 
 app.use( express.static( path.resolve( __dirname, "./dist" ) ) );
@@ -14,32 +10,9 @@ app.get( "/resources/:filepath", ( req, res ) => {
 });
 
 app.get( "/*", ( req, res ) => {
-    const jsx = ( <App /> );
-    const reactDom = renderToString( jsx );
-
-    res.writeHead( 200, { "Content-Type": "text/html" } );
-    res.end( htmlTemplate( reactDom ) );
+    res.sendFile(path.resolve(__dirname, `../index.html`));
 } );
 
 app.listen( 2048, () => {
     console.log('Server running on port 2048...')
 } );
-
-function htmlTemplate( reactDom ) {
-    return `
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="utf-8">
-            <title>React SSR</title>
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-            <base href="/" />
-        </head>
-        
-        <body>
-            <div id="app">${ reactDom }</div>
-            <script src="/resources/bundle.js"></script>
-        </body>
-        </html>
-    `;
-}
