@@ -9,6 +9,10 @@ const app = express();
 
 app.use( express.static( path.resolve( __dirname, "./dist" ) ) );
 
+app.get( "/resources/:filepath", ( req, res ) => {
+    res.sendFile(path.resolve(__dirname, `../dist/${req.params.filepath}`));
+});
+
 app.get( "/*", ( req, res ) => {
     const jsx = ( <App /> );
     const reactDom = renderToString( jsx );
@@ -28,11 +32,12 @@ function htmlTemplate( reactDom ) {
         <head>
             <meta charset="utf-8">
             <title>React SSR</title>
+            <base href="/" />
         </head>
         
         <body>
             <div id="app">${ reactDom }</div>
-            <script src="./app.bundle.js"></script>
+            <script src="/resources/bundle.js"></script>
         </body>
         </html>
     `;

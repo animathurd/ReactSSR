@@ -10,5 +10,3 @@ ReactDOM.render(
 );
 
 ReactDOM.hydrate(<App />, document.getElementById('app'));
-
-module.hot.accept();

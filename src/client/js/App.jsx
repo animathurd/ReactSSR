@@ -9,7 +9,8 @@ var quotes = [
 const App = () => (
     <div>
         <h1>SSR is Awesome!</h1>
-        {quotes.map(quote => (<p key={quote[1]}>
+        {quotes.map(quote => (<p key={quote[1]
+        }>
             {quote[0]} - <i>{quote[1]}</i>
         </p>))}
     </div>
