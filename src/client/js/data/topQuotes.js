@@ -1,22 +1,22 @@
 export default [
   {
-    text: "Stay Hungry. Stay Foolish.",
-    by: "Steve Jobs"
+    quote: "Stay Hungry. Stay Foolish.",
+    source: "Steve Jobs"
   },
   {
-    text: "Good Artists Copy, Great Artists Steal.",
-    by: "Pablo Picasso"
+    quote: "Good Artists Copy, Great Artists Steal.",
+    source: "Pablo Picasso"
   },
   {
-    text: "Argue with idiots, and you become an idiot.",
-    by: "Paul Graham"
+    quote: "Argue with idiots, and you become an idiot.",
+    source: "Paul Graham"
   },
   {
-    text: "Be yourself; everyone else is already taken.",
-    by: "Oscar Wilde"
+    quote: "Be yourself; everyone else is already taken.",
+    source: "Oscar Wilde"
   },
   {
-    text: "Simplicity is the ultimate sophistication.",
-    by: "Leonardo Da Vinci"
+    quote: "Simplicity is the ultimate sophistication.",
+    source: "Leonardo Da Vinci"
   }
 ];

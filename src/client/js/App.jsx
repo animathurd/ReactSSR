@@ -5,14 +5,14 @@ import Header from "./components/header.component";
 
 const App = () => (
   <div>
-    <Router>
-      <Header />
+    <Header />
+    <div className="container">
       <Switch>
         {routes.map(route => (
           <Route key={route.path} {...route} />
         ))}
       </Switch>
-    </Router>
+    </div>
   </div>
 );
 

@@ -1,9 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import App from "./js/App";
 
-const title = "My Minimal React Webpack Babel Setup";
-
-ReactDOM.render(<div>{title}</div>, document.getElementById("app"));
-
-ReactDOM.hydrate(<App />, document.getElementById("app"));
+ReactDOM.hydrate(
+  <Router>
+    <App />
+  </Router>,
+  document.getElementById("app")
+);

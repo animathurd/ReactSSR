@@ -11,7 +11,7 @@ const Header = () => (
           </a>
         </div>
         <ul class="nav navbar-nav">
-          <li class="active">
+          <li>
             <Link to="/">Top Quotes</Link>
           </li>
           <li>
