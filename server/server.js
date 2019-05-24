@@ -3,6 +3,7 @@ import path from "path";
 
 import React from "react";
 import { renderToString } from "react-dom/server";
+import { StaticRouter } from "react-router-dom";
 import App from "../src/client/js/App";
 
 const app = express();
@@ -14,7 +15,11 @@ app.get("/resources/:filepath", (req, res) => {
 });
 
 app.get("/*", (req, res) => {
-  const jsx = <App />;
+  const jsx = (
+    <StaticRouter location={req.url}>
+      <App />
+    </StaticRouter>
+  );
   const reactDom = renderToString(jsx);
 
   res.writeHead(200, { "Content-Type": "text/html" });
