@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --config ./webpack.config.js --mode development",
     "build": "webpack --mode production",
-    "start:server": "nodemon ./index.js"
+    "build-dev": "webpack --mode development",
+    "server": "nodemon ./index.js"
   },
   "author": "Animesh",
   "license": "ISC",
@@ -14,7 +15,9 @@
     "axios": "^0.18.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^4.2.2"
+    "react-redux": "^7.0.3",
+    "react-router-dom": "^4.2.2",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",

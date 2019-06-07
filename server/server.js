@@ -15,15 +15,17 @@ app.get("/resources/:filepath", (req, res) => {
 });
 
 app.get("/*", (req, res) => {
-  const jsx = (
-    <StaticRouter location={req.url}>
-      <App />
-    </StaticRouter>
-  );
-  const reactDom = renderToString(jsx);
+  res.sendFile(path.resolve(__dirname, `../index.html`));
 
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.end(htmlTemplate(reactDom));
+  // const jsx = (
+  //   <StaticRouter location={req.url}>
+  //     <App />
+  //   </StaticRouter>
+  // );
+  // const reactDom = renderToString(jsx);
+
+  // res.writeHead(200, { "Content-Type": "text/html" });
+  // res.end(htmlTemplate(reactDom));
 });
 
 app.listen(2048, () => {
